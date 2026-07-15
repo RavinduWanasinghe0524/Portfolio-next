@@ -49,7 +49,7 @@ export default function Contact() {
             className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-[0.12em] uppercase mb-3"
             style={{ fontFamily: "var(--font-geist-mono)", color: "#60a5fa" }}
           >
-            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>//</span> connect
+            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>{"//"}</span> connect
           </div>
           <h2 className="text-4xl font-bold text-white mb-2">
             Get in <span style={{

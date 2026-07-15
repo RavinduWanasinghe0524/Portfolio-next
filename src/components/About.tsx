@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
-import Image from "next/image";
+import { useEffect } from "react";
 import { PERSONAL } from "@/lib/data";
 
 function useReveal() {
@@ -38,7 +37,7 @@ export default function About() {
         <div className="text-center mb-14 reveal">
           <div className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-[0.12em] uppercase mb-3"
             style={{ fontFamily: "var(--font-geist-mono)", color: "#60a5fa" }}>
-            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>//</span> about me
+            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>{"//"}</span> about me
           </div>
           <h2 className="text-4xl font-bold text-white mb-2">
             Who I Am &amp; <span style={{

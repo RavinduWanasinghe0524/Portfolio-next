@@ -203,7 +203,7 @@ export default function Terminal() {
             className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-[0.12em] uppercase mb-3"
             style={{ fontFamily: "var(--font-geist-mono)", color: "#60a5fa" }}
           >
-            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>//</span> interactive
+            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>{"//"}</span> interactive
           </div>
           <h2 className="text-4xl font-bold text-white mb-2">
             AI <span style={{
@@ -243,7 +243,7 @@ export default function Terminal() {
             onClick={focusInput}
             className="h-80 overflow-y-auto p-6 font-mono text-[11.5px] leading-relaxed bg-slate-950/95 space-y-2.5 cursor-text text-slate-300"
           >
-            <div className="text-slate-600">// Welcome to Ravindu's Agentic CLI Console. Type 'help' for commands.</div>
+            <div className="text-slate-600">{"// Welcome to Ravindu's Agentic CLI Console. Type 'help' for commands."}</div>
             <div>
               <span className="text-blue-400">visitor@ravindu-node:~$ </span>
               <span className="text-white">system_init --verbose</span>

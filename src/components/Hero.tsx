@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { PERSONAL } from "@/lib/data";
 
@@ -26,8 +26,10 @@ export default function Hero() {
         setLetterIdx((l) => l - 1);
       }, 40);
     } else if (deleting && letterIdx === 0) {
-      setDeleting(false);
-      setPhraseIdx((i) => (i + 1) % PERSONAL.phrases.length);
+      timer = setTimeout(() => {
+        setDeleting(false);
+        setPhraseIdx((i) => (i + 1) % PERSONAL.phrases.length);
+      }, 0);
     }
     return () => clearTimeout(timer);
   }, [letterIdx, deleting, phraseIdx]);
@@ -167,7 +169,7 @@ export default function Hero() {
                 border: "3px solid rgba(255,255,255,0.08)",
                 zIndex: 2,
               }}>
-                <Image src="/2.jpg" alt="Ravindu Wanasinghe" fill className="object-cover" priority />
+                <Image src="/2.jpg" alt="Ravindu Wanasinghe" fill className="object-cover" priority sizes="260px" />
               </div>
 
               {/* Float badges */}

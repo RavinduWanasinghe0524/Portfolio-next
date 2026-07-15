@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { PROJECTS, Project } from "@/lib/data";
+import { PROJECTS } from "@/lib/data";
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<"all" | "web" | "tools">("all");
@@ -38,7 +38,7 @@ export default function Projects() {
             className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-[0.12em] uppercase mb-3"
             style={{ fontFamily: "var(--font-geist-mono)", color: "#60a5fa" }}
           >
-            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>//</span> portfolio
+            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>{"//"}</span> portfolio
           </div>
           <h2 className="text-4xl font-bold text-white mb-2">
             My Project{" "}

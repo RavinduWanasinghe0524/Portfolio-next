@@ -8,7 +8,6 @@ export default function Skills() {
 
   useEffect(() => {
     // Reset and trigger bar animations when category changes
-    setBarsAnimated(false);
     const timer = setTimeout(() => {
       setBarsAnimated(true);
     }, 50);
@@ -33,7 +32,7 @@ export default function Skills() {
             className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-[0.12em] uppercase mb-3"
             style={{ fontFamily: "var(--font-geist-mono)", color: "#60a5fa" }}
           >
-            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>//</span> expertise
+            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>{"//"}</span> expertise
           </div>
           <h2 className="text-4xl font-bold text-white mb-2">
             Skills &amp;{" "}
@@ -62,7 +61,10 @@ export default function Skills() {
               return (
                 <button
                   key={cat.key}
-                  onClick={() => setActiveCategory(cat.key)}
+                  onClick={() => {
+                    setBarsAnimated(false);
+                    setActiveCategory(cat.key);
+                  }}
                   className={`w-full flex items-center gap-4 p-4 rounded-xl text-left border transition-all duration-300 ${
                     isActive
                       ? "bg-blue-600/10 border-blue-500/40 shadow-[inset_4px_0_0_#3b82f6]"
