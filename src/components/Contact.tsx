@@ -1,7 +1,26 @@
 "use client";
+import { useEffect } from "react";
 import { PERSONAL } from "@/lib/data";
 
+function useReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add("visible"), i * 80);
+          obs.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+}
+
 export default function Contact() {
+  useReveal();
   const onMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
