@@ -35,7 +35,7 @@ export default function Home() {
       <Navbar />
 
       {/* Main Container */}
-      <main className="relative z-10">
+      <main className="relative z-10 overflow-x-hidden">
         <Hero />
         <About />
         <Skills />
