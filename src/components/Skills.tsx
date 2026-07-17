@@ -7,10 +7,8 @@ export default function Skills() {
   const [barsAnimated, setBarsAnimated] = useState(false);
 
   useEffect(() => {
-    // Reset and trigger bar animations when category changes
-    const timer = setTimeout(() => {
-      setBarsAnimated(true);
-    }, 50);
+    setBarsAnimated(false);
+    const timer = setTimeout(() => setBarsAnimated(true), 80);
     return () => clearTimeout(timer);
   }, [activeCategory]);
 
@@ -24,38 +22,29 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-14 reveal">
-          <div
-            className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-[0.12em] uppercase mb-3"
-            style={{ fontFamily: "var(--font-geist-mono)", color: "#60a5fa" }}
-          >
-            <span style={{ color: "#7dd3fc", opacity: 0.7 }}>{"//"}</span> expertise
+    <section id="skills" style={{ padding: "5rem 0" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 1.5rem" }}>
+
+        {/* ── Header ── */}
+        <div className="reveal" style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+          <div className="section-overline">
+            <span style={{ color: "#7dd3fc", opacity: 0.6 }}>//</span> expertise
           </div>
-          <h2 className="text-4xl font-bold text-white mb-2">
+          <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 800, color: "#fff", marginBottom: "0.5rem", lineHeight: 1.2 }}>
             Skills &amp;{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg,#60a5fa,#0ea5e9)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Focus Areas
-            </span>
+            <span style={{
+              background: "linear-gradient(135deg,#60a5fa,#0ea5e9)",
+              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+            }}>Focus Areas</span>
           </h2>
-          <div
-            className="h-[3px] w-14 mx-auto mt-3 rounded-full"
-            style={{ background: "linear-gradient(90deg,#2563eb,#0ea5e9)" }}
-          />
+          <div style={{ height: 3, width: 56, margin: "0.75rem auto 0", borderRadius: 99, background: "linear-gradient(90deg,#2563eb,#0ea5e9)" }} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Categories List */}
-          <div className="md:col-span-4 space-y-3">
+        {/* ── Two-column layout ── */}
+        <div className="skills-grid">
+
+          {/* Left: Category List */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {SKILLS.map((cat) => {
               const isActive = cat.key === activeCategory;
               return (
@@ -65,28 +54,48 @@ export default function Skills() {
                     setBarsAnimated(false);
                     setActiveCategory(cat.key);
                   }}
-                  className={`w-full flex items-center gap-4 p-4 rounded-xl text-left border transition-all duration-300 ${
-                    isActive
-                      ? "bg-blue-600/10 border-blue-500/40 shadow-[inset_4px_0_0_#3b82f6]"
-                      : "bg-slate-900/10 border-transparent hover:bg-blue-900/10 hover:border-blue-900/20"
-                  }`}
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.875rem",
+                    padding: "0.875rem 1rem",
+                    borderRadius: "0.875rem",
+                    textAlign: "left",
+                    cursor: "pointer",
+                    border: isActive ? "1px solid rgba(59,130,246,0.4)" : "1px solid rgba(255,255,255,0.05)",
+                    background: isActive ? "rgba(37,99,235,0.1)" : "rgba(255,255,255,0.02)",
+                    boxShadow: isActive ? "inset 4px 0 0 #3b82f6" : "none",
+                    transition: "all 0.25s ease",
+                    outline: "none",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.background = "rgba(59,130,246,0.06)";
+                      e.currentTarget.style.border = "1px solid rgba(59,130,246,0.2)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.background = "rgba(255,255,255,0.02)";
+                      e.currentTarget.style.border = "1px solid rgba(255,255,255,0.05)";
+                    }
+                  }}
                 >
-                  <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center text-lg shadow-sm"
-                    style={{
-                      background: isActive
-                        ? "rgba(59,130,246,0.2)"
-                        : "rgba(255,255,255,0.03)",
-                    }}
-                  >
+                  <div style={{
+                    width: 40, height: 40, borderRadius: 10,
+                    display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.15rem",
+                    background: isActive ? "rgba(59,130,246,0.2)" : "rgba(255,255,255,0.04)",
+                    flexShrink: 0,
+                  }}>
                     {cat.icon}
                   </div>
-                  <div>
-                    <div className="font-semibold text-sm text-white">
+                  <div style={{ overflow: "hidden", minWidth: 0 }}>
+                    <div style={{ fontWeight: 600, fontSize: "0.875rem", color: isActive ? "#e2e8f0" : "#94a3b8", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                       {cat.label}
                     </div>
-                    <div className="text-xs text-slate-500 mt-0.5">
-                      {cat.bars.map((b) => b.name.split(" ")[0]).join(", ")}...
+                    <div style={{ fontSize: "0.72rem", color: "#475569", marginTop: "0.15rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                      {cat.bars.slice(0, 3).map((b) => b.name.split(" ")[0]).join(" · ")}
                     </div>
                   </div>
                 </button>
@@ -94,89 +103,80 @@ export default function Skills() {
             })}
           </div>
 
-          {/* Right Column: Active Category Details Visualizer */}
-          <div className="md:col-span-8">
-            <div
-              className="glass glow-border mouse-glow p-8 rounded-2xl min-h-[380px] flex flex-col justify-between"
-              onMouseMove={onMouseMove}
-            >
-              <div>
-                <div
-                  className="text-xs font-bold tracking-[0.1em] uppercase mb-1"
-                  style={{
-                    fontFamily: "var(--font-geist-mono)",
-                    color: "#60a5fa",
-                  }}
-                >
-                  {activeData.subtitle}
-                </div>
-                <h3 className="text-2xl font-bold text-white">
-                  {activeData.label}
-                </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mt-3">
-                  {activeData.desc}
-                </p>
+          {/* Right: Detail Panel */}
+          <div
+            className="glass glow-border mouse-glow"
+            onMouseMove={onMouseMove}
+            style={{ padding: "2rem", minHeight: "400px", display: "flex", flexDirection: "column" }}
+          >
+            <div style={{ marginBottom: "1.25rem" }}>
+              <div style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#60a5fa", fontFamily: "var(--font-geist-mono)", marginBottom: "0.4rem" }}>
+                {activeData.subtitle}
               </div>
+              <h3 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#fff" }}>{activeData.label}</h3>
+              <p style={{ color: "#64748b", fontSize: "0.85rem", lineHeight: 1.7, marginTop: "0.6rem" }}>{activeData.desc}</p>
+            </div>
 
-              {/* Progress bars matrix */}
-              <div className="my-6 space-y-4">
-                <div
-                  className="text-xs font-bold tracking-[0.1em] uppercase mb-3"
-                  style={{
-                    fontFamily: "var(--font-geist-mono)",
-                    color: "#94a3b8",
-                  }}
-                >
-                  Expertise Matrix
-                </div>
+            {/* Progress bars */}
+            <div style={{ marginBottom: "1.5rem", flex: 1 }}>
+              <div style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#475569", fontFamily: "var(--font-geist-mono)", marginBottom: "0.75rem" }}>
+                Expertise Matrix
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem" }}>
                 {activeData.bars.map((bar) => (
-                  <div key={bar.name} className="space-y-1.5">
-                    <div className="flex justify-between text-xs font-medium text-slate-400">
-                      <span>{bar.name}</span>
-                      <span
-                        className="font-bold"
-                        style={{
-                          fontFamily: "var(--font-geist-mono)",
-                          color: "#60a5fa",
-                        }}
-                      >
-                        {bar.level}%
-                      </span>
+                  <div key={bar.name}>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.35rem" }}>
+                      <span style={{ fontSize: "0.8rem", color: "#94a3b8", fontWeight: 500 }}>{bar.name}</span>
+                      <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#60a5fa", fontFamily: "var(--font-geist-mono)" }}>{bar.level}%</span>
                     </div>
-                    <div className="h-1.5 w-full bg-slate-900/60 rounded-full overflow-hidden border border-white/5">
+                    <div style={{ height: 6, background: "rgba(15,23,42,0.8)", borderRadius: 99, overflow: "hidden", border: "1px solid rgba(255,255,255,0.04)" }}>
                       <div
-                        className="h-full bg-gradient-to-r from-blue-600 to-sky-400 rounded-full skill-bar"
-                        style={{ width: barsAnimated ? `${bar.level}%` : "0%" }}
+                        className="skill-bar"
+                        style={{
+                          height: "100%",
+                          width: barsAnimated ? `${bar.level}%` : "0%",
+                          borderRadius: 99,
+                          background: "linear-gradient(90deg,#2563eb,#0ea5e9)",
+                        }}
                       />
                     </div>
                   </div>
                 ))}
               </div>
+            </div>
 
-              {/* Core Ecosystem Tags */}
-              <div>
-                <div
-                  className="text-xs font-bold tracking-[0.1em] uppercase mb-2"
-                  style={{
-                    fontFamily: "var(--font-geist-mono)",
-                    color: "#94a3b8",
-                  }}
-                >
-                  Core Ecosystem
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {activeData.tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className="px-2.5 py-1 rounded-md text-[10px] font-bold font-mono text-blue-300 bg-blue-500/5 border border-blue-500/10 hover:bg-blue-500/10 hover:text-white transition-all cursor-default"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
+            {/* Ecosystem tags */}
+            <div>
+              <div style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#475569", fontFamily: "var(--font-geist-mono)", marginBottom: "0.6rem" }}>
+                Core Ecosystem
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                {activeData.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    style={{
+                      padding: "0.25rem 0.6rem", borderRadius: 6,
+                      fontSize: "0.68rem", fontWeight: 700, fontFamily: "var(--font-geist-mono)",
+                      color: "#93c5fd", background: "rgba(59,130,246,0.06)",
+                      border: "1px solid rgba(59,130,246,0.12)",
+                      cursor: "default", transition: "all 0.2s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "rgba(59,130,246,0.14)";
+                      e.currentTarget.style.color = "#e2e8f0";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "rgba(59,130,246,0.06)";
+                      e.currentTarget.style.color = "#93c5fd";
+                    }}
+                  >
+                    {tool}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -47,10 +47,10 @@ body {
 
 /* ---- GLASS ---- */
 .glass {
-  background: rgba(6,12,24,0.7);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(59,130,246,0.12);
+  background: rgba(8, 15, 30, 0.75);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(59, 130, 246, 0.15);
   border-radius: 1.25rem;
 }
 
@@ -64,9 +64,9 @@ body {
   border-radius: inherit;
   padding: 1px;
   background: linear-gradient(135deg,
-    rgba(59,130,246,0.6) 0%,
-    rgba(14,165,233,0.3) 50%,
-    rgba(79,70,229,0.4) 100%);
+    rgba(59,130,246,0.5) 0%,
+    rgba(14,165,233,0.25) 50%,
+    rgba(79,70,229,0.35) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -86,7 +86,7 @@ body {
   padding: 1.5px;
   background: radial-gradient(
     320px circle at var(--mx, -999px) var(--my, -999px),
-    rgba(59,130,246,0.55),
+    rgba(59,130,246,0.5),
     transparent 50%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -99,6 +99,14 @@ body {
   z-index: 2;
 }
 .mouse-glow:hover::after { opacity: 1; }
+
+/* ---- SECTION SEPARATOR ---- */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59,130,246,0.2), transparent);
+  margin: 0;
+}
 
 /* ---- ANIMATIONS ---- */
 @keyframes float {
@@ -114,7 +122,7 @@ body {
 }
 @keyframes pulse-ring {
   0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.4); }
-  50% { box-shadow: 0 0 0 15px rgba(59,130,246,0); }
+  50% { box-shadow: 0 0 0 18px rgba(59,130,246,0); }
 }
 @keyframes drift-1 {
   0%   { transform: translate(0,0) scale(1); }
@@ -152,18 +160,22 @@ body {
 @keyframes bar-grow {
   from { width: 0%; }
 }
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 .animate-float { animation: float 4s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 12s linear infinite; }
 .animate-blink { animation: blink 1s step-end infinite; }
 .animate-ping-dot { animation: ping-dot 2s ease-in-out infinite; }
 
-/* Scroll reveal */
+/* ---- SCROLL REVEAL ---- */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.75s cubic-bezier(0.25,0.8,0.25,1),
-              transform 0.75s cubic-bezier(0.25,0.8,0.25,1);
+  transition: opacity 0.75s cubic-bezier(0.25, 0.8, 0.25, 1),
+              transform 0.75s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -179,5 +191,60 @@ body {
 }
 .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
-/* Skill bar animation */
-.skill-bar { transition: width 1.2s cubic-bezier(0.25,0.8,0.25,1); }
+/* ---- SKILL BAR ---- */
+.skill-bar { transition: width 1.2s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+/* ---- SECTION HEADER OVERLINE ---- */
+.section-overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #60a5fa;
+  font-family: var(--font-geist-mono);
+  margin-bottom: 0.75rem;
+}
+
+/* ---- ABOUT BENTO GRID ---- */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+  .bento-span-2 {
+    grid-column: span 2;
+  }
+  .bento-row-2 {
+    grid-row: span 2;
+  }
+}
+
+/* ---- SKILLS LAYOUT ---- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+/* ---- CARD HOVER ---- */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 30px rgba(59,130,246,0.08);
+}
