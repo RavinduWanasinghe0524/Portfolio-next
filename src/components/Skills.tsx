@@ -23,11 +23,41 @@ export default function Skills() {
 
   return (
     <section id="skills" style={{ padding: "5rem 0" }}>
+      <style>{`
+        .skills-layout {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          align-items: start;
+        }
+        @media (min-width: 768px) {
+          .skills-layout {
+            grid-template-columns: 280px 1fr;
+          }
+        }
+        .skill-cat-btn {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          gap: 0.875rem;
+          padding: 0.875rem 1rem;
+          border-radius: 0.875rem;
+          text-align: left;
+          cursor: pointer;
+          outline: none;
+          transition: all 0.25s ease;
+        }
+        .skill-cat-btn:hover {
+          background: rgba(59,130,246,0.07) !important;
+          border-color: rgba(59,130,246,0.22) !important;
+        }
+      `}</style>
+
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 1.5rem" }}>
 
         {/* ── Header ── */}
         <div className="reveal" style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-          <div className="section-overline">
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#60a5fa", fontFamily: "var(--font-geist-mono)", marginBottom: "0.75rem" }}>
             <span style={{ color: "#7dd3fc", opacity: 0.6 }}>//</span> expertise
           </div>
           <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 800, color: "#fff", marginBottom: "0.5rem", lineHeight: 1.2 }}>
@@ -41,52 +71,30 @@ export default function Skills() {
         </div>
 
         {/* ── Two-column layout ── */}
-        <div className="skills-grid">
+        <div className="skills-layout">
 
           {/* Left: Category List */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
             {SKILLS.map((cat) => {
               const isActive = cat.key === activeCategory;
               return (
                 <button
                   key={cat.key}
+                  className="skill-cat-btn"
                   onClick={() => {
                     setBarsAnimated(false);
                     setActiveCategory(cat.key);
                   }}
                   style={{
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.875rem",
-                    padding: "0.875rem 1rem",
-                    borderRadius: "0.875rem",
-                    textAlign: "left",
-                    cursor: "pointer",
                     border: isActive ? "1px solid rgba(59,130,246,0.4)" : "1px solid rgba(255,255,255,0.05)",
                     background: isActive ? "rgba(37,99,235,0.1)" : "rgba(255,255,255,0.02)",
                     boxShadow: isActive ? "inset 4px 0 0 #3b82f6" : "none",
-                    transition: "all 0.25s ease",
-                    outline: "none",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.background = "rgba(59,130,246,0.06)";
-                      e.currentTarget.style.border = "1px solid rgba(59,130,246,0.2)";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-                      e.currentTarget.style.border = "1px solid rgba(255,255,255,0.05)";
-                    }
                   }}
                 >
                   <div style={{
-                    width: 40, height: 40, borderRadius: 10,
-                    display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.15rem",
+                    width: 40, height: 40, borderRadius: 10, flexShrink: 0,
+                    display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem",
                     background: isActive ? "rgba(59,130,246,0.2)" : "rgba(255,255,255,0.04)",
-                    flexShrink: 0,
                   }}>
                     {cat.icon}
                   </div>
@@ -94,7 +102,7 @@ export default function Skills() {
                     <div style={{ fontWeight: 600, fontSize: "0.875rem", color: isActive ? "#e2e8f0" : "#94a3b8", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                       {cat.label}
                     </div>
-                    <div style={{ fontSize: "0.72rem", color: "#475569", marginTop: "0.15rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                    <div style={{ fontSize: "0.7rem", color: "#475569", marginTop: "0.15rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                       {cat.bars.slice(0, 3).map((b) => b.name.split(" ")[0]).join(" · ")}
                     </div>
                   </div>
@@ -107,19 +115,20 @@ export default function Skills() {
           <div
             className="glass glow-border mouse-glow"
             onMouseMove={onMouseMove}
-            style={{ padding: "2rem", minHeight: "400px", display: "flex", flexDirection: "column" }}
+            style={{ padding: "2rem", minHeight: "420px", display: "flex", flexDirection: "column" }}
           >
-            <div style={{ marginBottom: "1.25rem" }}>
+            {/* Title row */}
+            <div style={{ marginBottom: "1.5rem" }}>
               <div style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#60a5fa", fontFamily: "var(--font-geist-mono)", marginBottom: "0.4rem" }}>
                 {activeData.subtitle}
               </div>
               <h3 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#fff" }}>{activeData.label}</h3>
-              <p style={{ color: "#64748b", fontSize: "0.85rem", lineHeight: 1.7, marginTop: "0.6rem" }}>{activeData.desc}</p>
+              <p style={{ color: "#64748b", fontSize: "0.85rem", lineHeight: 1.7, marginTop: "0.5rem" }}>{activeData.desc}</p>
             </div>
 
             {/* Progress bars */}
             <div style={{ marginBottom: "1.5rem", flex: 1 }}>
-              <div style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#475569", fontFamily: "var(--font-geist-mono)", marginBottom: "0.75rem" }}>
+              <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#475569", fontFamily: "var(--font-geist-mono)", marginBottom: "0.75rem" }}>
                 Expertise Matrix
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem" }}>
@@ -147,7 +156,7 @@ export default function Skills() {
 
             {/* Ecosystem tags */}
             <div>
-              <div style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#475569", fontFamily: "var(--font-geist-mono)", marginBottom: "0.6rem" }}>
+              <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#475569", fontFamily: "var(--font-geist-mono)", marginBottom: "0.6rem" }}>
                 Core Ecosystem
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
@@ -161,14 +170,8 @@ export default function Skills() {
                       border: "1px solid rgba(59,130,246,0.12)",
                       cursor: "default", transition: "all 0.2s",
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "rgba(59,130,246,0.14)";
-                      e.currentTarget.style.color = "#e2e8f0";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "rgba(59,130,246,0.06)";
-                      e.currentTarget.style.color = "#93c5fd";
-                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(59,130,246,0.14)"; e.currentTarget.style.color = "#e2e8f0"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(59,130,246,0.06)"; e.currentTarget.style.color = "#93c5fd"; }}
                   >
                     {tool}
                   </span>
