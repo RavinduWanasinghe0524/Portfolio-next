@@ -177,7 +177,7 @@ export default function Hero() {
           </div>
 
           {/* ── Right: Avatar ── */}
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} className="hero-avatar-col">
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "2rem" }} className="hero-avatar-col">
             <div style={{ position: "relative", width: 280, height: 280 }}>
 
               {/* Spinning conic ring */}
@@ -212,32 +212,49 @@ export default function Hero() {
                 <Image src="/2.jpg" alt="Ravindu Wanasinghe" fill className="object-cover" priority sizes="280px" />
               </div>
 
-              {/* Tech badge — TypeScript (top-right, inside safe zone) */}
+              {/* Tech badge — TypeScript (top-right) */}
               <div
                 className="animate-float"
                 style={{
-                  position: "absolute", top: "4%", right: "-30%", zIndex: 10,
+                  position: "absolute", top: "-10%", right: "-15%", zIndex: 10,
                   background: "rgba(6,12,24,0.92)", backdropFilter: "blur(14px)",
                   border: "1px solid rgba(59,130,246,0.25)", borderRadius: 10,
                   padding: "0.4rem 0.75rem", fontSize: "0.7rem", fontWeight: 700,
                   color: "#93c5fd", whiteSpace: "nowrap", animationDelay: "0s",
+                  boxShadow: "0 4px 20px rgba(59,130,246,0.2)",
                 }}
               >
                 💻 TypeScript
               </div>
 
-              {/* Tech badge — Next.js (bottom-left, inside safe zone) */}
+              {/* Tech badge — Next.js (bottom-left) */}
               <div
                 className="animate-float"
                 style={{
-                  position: "absolute", bottom: "6%", left: "-28%", zIndex: 10,
+                  position: "absolute", bottom: "-8%", left: "-18%", zIndex: 10,
                   background: "rgba(6,12,24,0.92)", backdropFilter: "blur(14px)",
                   border: "1px solid rgba(14,165,233,0.25)", borderRadius: 10,
                   padding: "0.4rem 0.75rem", fontSize: "0.7rem", fontWeight: 700,
                   color: "#7dd3fc", whiteSpace: "nowrap", animationDelay: "1.5s",
+                  boxShadow: "0 4px 20px rgba(14,165,233,0.2)",
                 }}
               >
                 🌐 Next.js
+              </div>
+
+              {/* Tech badge — React (top-left) */}
+              <div
+                className="animate-float"
+                style={{
+                  position: "absolute", top: "35%", left: "-22%", zIndex: 10,
+                  background: "rgba(6,12,24,0.92)", backdropFilter: "blur(14px)",
+                  border: "1px solid rgba(79,70,229,0.25)", borderRadius: 10,
+                  padding: "0.4rem 0.75rem", fontSize: "0.7rem", fontWeight: 700,
+                  color: "#a5b4fc", whiteSpace: "nowrap", animationDelay: "0.8s",
+                  boxShadow: "0 4px 20px rgba(79,70,229,0.2)",
+                }}
+              >
+                ⚛️ React
               </div>
 
             </div>
@@ -261,8 +278,24 @@ export default function Hero() {
             grid-template-columns: 1fr 1fr !important;
           }
           .hero-avatar-col {
-            justify-content: flex-end !important;
+            justify-content: center !important;
+            overflow: visible !important;
           }
+        }
+        @keyframes hero-in {
+          from { opacity: 0; transform: translateY(32px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .hero-left > * {
+          animation: hero-in 0.7s ease both;
+        }
+        .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+        .hero-left > *:nth-child(2) { animation-delay: 0.15s; }
+        .hero-left > *:nth-child(3) { animation-delay: 0.25s; }
+        .hero-left > *:nth-child(4) { animation-delay: 0.38s; }
+        .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+        .hero-right-wrap {
+          animation: hero-in 0.8s 0.35s ease both;
         }
       `}</style>
     </section>

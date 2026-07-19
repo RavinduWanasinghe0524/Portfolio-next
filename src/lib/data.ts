@@ -151,7 +151,7 @@ export const PROJECTS: Project[] = [
     tech: ["Python", "CLI", "Analytics"],
     date: "Feb 2026",
     status: "Completed",
-    code: "https://github.com/RavinduWanasinghe0524/Zen-",
+    code: "https://github.com/RavinduWanasinghe0524/Zen-Productivity",
   },
   {
     id: "ems",
