@@ -77,7 +77,7 @@ export default function Hero() {
         >
 
           {/* ── Left: Text ── */}
-          <div style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.4s ease" }}>
+          <div className="hero-left" style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.3s ease" }}>>
 
             {/* Badge */}
             <div style={{
@@ -85,7 +85,6 @@ export default function Hero() {
               padding: "0.4rem 1rem", borderRadius: 99, marginBottom: "1.5rem",
               background: "rgba(37,99,235,0.1)", border: "1px solid rgba(59,130,246,0.25)",
               color: "#93c5fd", fontFamily: "var(--font-geist-mono)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.05em",
-              animation: "fade-up 0.6s ease forwards",
             }}>
               <span className="animate-ping-dot" style={{ width: 7, height: 7, borderRadius: "50%", background: "#60a5fa", display: "inline-block" }} />
               Open to Opportunities
@@ -105,7 +104,6 @@ export default function Hero() {
               letterSpacing: "-0.02em",
               color: "#fff",
               marginBottom: "1.25rem",
-              animation: "fade-up 0.8s 0.2s ease both",
             }}>
               Hi, I&apos;m{" "}
               <span style={{
@@ -121,12 +119,12 @@ export default function Hero() {
             </h1>
 
             {/* Bio */}
-            <p style={{ color: "#94a3b8", fontSize: "1.05rem", lineHeight: 1.75, marginBottom: "2rem", maxWidth: "480px", animation: "fade-up 0.8s 0.35s ease both" }}>
+            <p style={{ color: "#94a3b8", fontSize: "1.05rem", lineHeight: 1.75, marginBottom: "2rem", maxWidth: "480px" }}>
               {PERSONAL.bio}
             </p>
 
             {/* CTAs */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", animation: "fade-up 0.8s 0.5s ease both" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
               <button
                 onClick={() => scrollTo("#projects")}
                 style={{
