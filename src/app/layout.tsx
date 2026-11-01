@@ -1,32 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Ravindu Wanasinghe • Full Stack Developer",
-  description:
-    "Ravindu Wanasinghe – Information Systems student at Sabaragamuwa University, passionate about Software Architecture, Web Technologies & Digital Forensics.",
   metadataBase: new URL("https://ravinduwanasinghe0524.github.io"),
+  title: "Ravindu Wanasinghe | Full Stack & AI Developer",
+  description: "Ravindu Wanasinghe builds full stack applications, AI and prompt engineering tools, and digital forensics projects.",
   openGraph: {
-    title: "Ravindu Wanasinghe • Full Stack Developer",
-    description:
-      "Full Stack Developer | TypeScript & Next.js | Information Systems Student at Sabaragamuwa University",
+    title: "Ravindu Wanasinghe | Full Stack & AI Developer",
+    description: "Full stack applications, AI and prompt engineering tools, and digital forensics projects.",
     type: "website",
-    url: "https://ravinduwanasinghe0524.github.io",
+    images: [{ url: "/2.jpg", width: 1200, height: 1200, alt: "Ravindu Wanasinghe" }],
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body>{children}</body></html>;
 }
