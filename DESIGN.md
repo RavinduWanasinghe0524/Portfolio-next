@@ -11,7 +11,8 @@ Keywords: precise, curious, confident, approachable. Aesthetic: dark technical e
 - Deep charcoal canvas, soft off-white text, and a vivid lime accent. Colors use OKLCH tokens in `src/app/globals.css`.
 - Large, compact sans headings with a restrained serif emphasis. Body type remains easy to read.
 - Spacious sections, thin dividers, square cards, and asymmetrical hero composition.
-- Project images and initial-based covers form the main visual rhythm. The circular hero stamp is the signature detail.
+- Project images and initial-based covers form the main visual rhythm. The circular hero stamp identifies the full stack, AI, and forensics focus.
+- Expertise separates practiced project work from technologies currently being explored.
 - Buttons and links have visible hover and keyboard focus states. The layout collapses to one column on narrow screens; motion respects reduced-motion preferences.
 
 ## Audit
