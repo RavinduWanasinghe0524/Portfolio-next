@@ -2,19 +2,22 @@
 
 ## Direction
 
-An editorial portfolio for a student developer working across web engineering, AI, and digital forensics. The audience is potential collaborators, internship teams, and recruiters. The primary actions are exploring work and getting in touch.
+An editorial portfolio for internship teams and collaborators. It positions Ravindu as a full stack developer and prompt engineer with a growing focus on AI and machine learning. It should feel precise, capable, calm, and human. The visitor path is introduction → selected work → expertise → recognition → background → contact.
 
-Keywords: precise, curious, confident, approachable. Aesthetic: dark technical editorial.
+The redesign takes the clarity of type-led portfolios and the directness of case-study showcases, rather than using decorative effects. References: [Tarik Karahodžić's portfolio case study](https://www.tarikkarahodzic.dev/projects/personal-site), [Figma's portfolio examples](https://www.figma.com/resource-library/portfolio-website-examples/), and [Creative Bloq's portfolio review](https://www.creativebloq.com/portfolios/examples-712368). These informed the hierarchy and content emphasis; the layout and styling are original to this site.
 
 ## System
 
-- Deep charcoal canvas, soft off-white text, and a vivid lime accent. Colors use OKLCH tokens in `src/app/globals.css`.
-- Large, compact sans headings with a restrained serif emphasis. Body type remains easy to read.
-- Spacious sections, thin dividers, square cards, and asymmetrical hero composition.
-- Project images and initial-based covers form the main visual rhythm. The circular hero stamp identifies the full stack, AI, and forensics focus.
-- Expertise separates practiced project work from technologies currently being explored.
-- Buttons and links have visible hover and keyboard focus states. The layout collapses to one column on narrow screens; motion respects reduced-motion preferences.
+- **Type:** IBM Plex Sans for display and body; IBM Plex Mono for section labels and metadata. Fonts are bundled locally.
+- **Color:** charcoal background (`#111315`), off-white text (`#e9e8e3`), warm copper accent (`#d6ae8e`), and a slightly lighter surface for recognition.
+- **Layout:** 1180px maximum content width, left-aligned grid, large image-led project rows, and generous section spacing.
+- **Signature:** a single warm recognition panel carries the award and credentials; the closing contact section uses the accent as a full surface.
+- **Interaction:** restrained link and image hover states; visible keyboard focus; reduced-motion support.
+
+## Content and maintenance
+
+The three selected projects, AI practice, and tech stack are drawn from `src/lib/data.ts`. Credentials and award details come from the owner's CV PDFs in `public/`. The portrait is `public/2.jpg`. The rest of the project archive is linked through GitHub.
 
 ## Audit
 
-The site uses real project content, a local portrait, accessible section navigation, and functional CV links. It avoids decorative background effects and unverified project metrics. Production build, lint, and TypeScript checks are part of delivery verification.
+The page uses real project imagery where available, avoids decorative cards and animation, and keeps content accessible in a linear mobile layout. Desktop and mobile renders, image loading, horizontal overflow, lint, and production build should be checked after visual changes.

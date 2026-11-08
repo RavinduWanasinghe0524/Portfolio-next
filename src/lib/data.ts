@@ -39,8 +39,24 @@ export const projects: Project[] = [
 ];
 
 export const credentials = [
-  { title: "Gemini Certified Student", issuer: "Google for Education" },
-  { title: "Introduction to Artificial Intelligence", issuer: "Simplilearn SkillUp" },
-  { title: "Introduction to Prompt Engineering", issuer: "Simplilearn SkillUp" },
-  { title: "Machine Learning Using Python", issuer: "Simplilearn SkillUp" },
+  { title: "Gemini Certified Student", issuer: "Google for Education", year: "2026" },
+  { title: "Introduction to Artificial Intelligence", issuer: "Simplilearn SkillUp", year: "2026" },
+  { title: "Introduction to Prompt Engineering", issuer: "Simplilearn SkillUp", year: "2026" },
+  { title: "Machine Learning Using Python", issuer: "Simplilearn SkillUp", year: "2026" },
+  { title: "Certificate of Appreciation — SabraXtreme 3.0", issuer: "IEEE Student Branch, SUSL", year: "2025" },
+];
+
+export const aiPractice = [
+  { title: "Prompt engineering", detail: "Training in structured prompts and few-shot techniques for useful LLM workflows." },
+  { title: "Multi-agent systems", detail: "Built a four-agent scam detection workflow for ShadowSense Aurora." },
+  { title: "RAG & vector search", detail: "Used ChromaDB to bring relevant fraud context into AI analysis." },
+  { title: "Machine learning", detail: "Completed Python ML coursework and continue to explore applied AI and ML." },
+];
+
+export const techStack = [
+  { area: "Languages", tools: "Python · TypeScript · Java · SQL" },
+  { area: "Frontend", tools: "React · Next.js · Tailwind CSS" },
+  { area: "Backend", tools: "Spring Boot · FastAPI · Node.js" },
+  { area: "Data & tools", tools: "MySQL · Git · Docker · Postman" },
+  { area: "AI / ML", tools: "Gemini API · Groq · DeepSeek-R1 · ChromaDB" },
 ];

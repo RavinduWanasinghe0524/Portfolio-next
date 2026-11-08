@@ -15,9 +15,9 @@ Open http://localhost:3000. For a production check, run `npm run build` and `npm
 
 ## Content
 
-- Edit projects, social links, and certifications in `src/lib/data.ts`.
+- Edit projects, AI practice, tech stack, certifications, and social links in `src/lib/data.ts`.
 - Edit page copy and section structure in `src/app/page.tsx`.
 - Edit the visual system in `src/app/globals.css`.
 - Replace `public/2.jpg` to update the portrait. Project images and CV PDFs are also in `public/`.
 
-The project uses local fonts and webpack mode so it runs without downloading fonts at build time. Development and production output use separate directories, so both can run without clashing.
+The site bundles IBM Plex fonts locally and uses webpack mode, so it runs without downloading fonts at build time. Development and production output use separate directories.
