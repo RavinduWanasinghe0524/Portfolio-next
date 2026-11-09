@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { aiPractice, credentials, personal, projects, techStack } from "@/lib/data";
+import { aiPractice, awards, credentials, personal, projects, techStack } from "@/lib/data";
 
-const selectedProjects = ["ShadowSense Aurora", "V-MAS", "TrueTrace"].map(
+const selectedProjects = ["ShadowSense Aurora", "V-MAS", "GridWalk AI"].map(
   (title) => projects.find((project) => project.title === title)!,
 );
 
@@ -45,7 +45,7 @@ export default function Home() {
         <section className="container work section" id="work" aria-labelledby="work-title">
           <div className="section-head">
             <p className="section-index">01 — Selected work</p>
-            <div><h2 id="work-title">Work that solves<br />real problems.</h2><p>Three projects across security, operations, and forensics.</p></div>
+            <div><h2 id="work-title">Work that solves<br />real problems.</h2><p>Three projects across security, operations, and resilient systems.</p></div>
           </div>
           <div className="work-list">
             {selectedProjects.map((project, index) => (
@@ -107,13 +107,17 @@ export default function Home() {
               <div><h2 id="recognition-title">A record of learning<br />and achievement.</h2><p>Recognition earned through projects, study, and community work.</p></div>
             </div>
             <div className="recognition-grid">
-              <div className="award">
-                <p className="eyebrow">Award / 2026</p>
-                <span className="award-number">1<span>st</span></span>
-                <h3>Runner-up, AURORA 2026</h3>
-                <p>National AI Ideathon · Team Shadow Sense</p>
-                <p>Led the team behind ShadowSense Aurora, a multi-agent system for detecting scams on freelance platforms.</p>
-                <a className="text-link" href="https://github.com/RavinduWanasinghe0524/ShadowSense-2026-Aurora" target="_blank" rel="noopener noreferrer">Explore the project <span aria-hidden="true">↗</span></a>
+              <div className="awards">
+                <h3>Awards</h3>
+                <ol className="award-list">
+                  {awards.map((award) => (
+                    <li key={award.competition}>
+                      <p className="award-result">{award.result}</p>
+                      <h4>{award.competition}</h4>
+                      <p>{award.team} · {award.project}</p>
+                    </li>
+                  ))}
+                </ol>
               </div>
               <div className="certifications">
                 <h3>Certifications</h3>

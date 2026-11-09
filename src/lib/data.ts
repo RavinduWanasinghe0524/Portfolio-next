@@ -8,7 +8,7 @@ export const personal = {
 
 export type Project = {
   title: string;
-  kind: "AI & Security" | "Web & Systems" | "Games & Tools";
+  kind: "AI & Security" | "AI & Systems" | "Web & Systems" | "Games & Tools";
   summary: string;
   stack: string[];
   year: string;
@@ -20,10 +20,9 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  { title: "ShadowSense Aurora", kind: "AI & Security", summary: "Led the team behind a four-agent scam detection system for freelance platforms, combining a browser extension, FastAPI, and ChromaDB. First runner-up at the AURORA 2026 AI Ideathon.", stack: ["Python", "FastAPI", "ChromaDB", "React"], year: "2026", image: "/shadowsense.png", code: "https://github.com/RavinduWanasinghe0524/ShadowSense-2026-Aurora", featured: true },
+  { title: "ShadowSense Aurora", kind: "AI & Security", summary: "Led the team behind a four-agent scam detection system for freelance platforms, combining a browser extension, FastAPI, and ChromaDB. First runner-up at the AURORA 2026 AI Ideathon.", stack: ["Python", "FastAPI", "ChromaDB", "React"], year: "2026", image: "/shadowsense-aurora.jpg", code: "https://github.com/RavinduWanasinghe0524/ShadowSense-2026-Aurora", featured: true },
   { title: "V-MAS", kind: "Web & Systems", summary: "Team-built fleet platform for administrators, controllers, and drivers. It brings together dispatch, fuel analytics, maintenance alerts, role-based access, and exportable reports. A newer PHP backend edition is also in progress.", stack: ["React", "Spring Boot / PHP", "MySQL", "JWT"], year: "2025–26", code: "https://github.com/RavinduWanasinghe0524/V---Mas", alternateCode: "https://github.com/RavinduWanasinghe0524/V-Mas-PHP-", demo: "https://v-mas.vercel.app", featured: true },
-  { title: "TrueTrace", kind: "AI & Security", summary: "Document forgery analysis using error level analysis, noise variance, and metadata inspection.", stack: ["TypeScript", "Digital forensics", "Image processing"], year: "2026", image: "/truetrace.png", code: "https://github.com/RavinduWanasinghe0524/TrueTrace", featured: true },
-  { title: "GridWalk AI", kind: "AI & Security", summary: "A team-built Jac microgrid recovery simulator. I worked on graph modelling, allocation rules, and validation; the live recovery workflow is still being integrated.", stack: ["Jac", "Graph modelling", "AI planning"], year: "2026", code: "https://github.com/RavinduWanasinghe0524/GridWalk-AI" },
+  { title: "GridWalk AI", kind: "AI & Systems", summary: "A team-built Jac microgrid recovery simulator. I worked on graph modelling, allocation rules, and validation for fault recovery scenarios.", stack: ["Jac", "Graph modelling", "AI planning"], year: "2026", image: "/gridwalk-ai.png", code: "https://github.com/RavinduWanasinghe0524/GridWalk-AI", featured: true },
   { title: "AyurFlow", kind: "Web & Systems", summary: "Collaborative clinic operations pilot with a Go API scaffold, PostgreSQL migrations, and Next.js module pages. Clinical features are in development.", stack: ["Go", "PostgreSQL", "Next.js"], year: "2026", code: "https://github.com/thimira20011/AyurFlow" },
   { title: "Gambix", kind: "Games & Tools", summary: "Python chess analysis that grounds move explanations in engine and symbolic evidence, including checks, pins, forks, and hanging pieces.", stack: ["Python", "Chess", "Pytest"], year: "2026", code: "https://github.com/RavinduWanasinghe0524/Gambix", featured: true },
   { title: "Elite Wheels / Next.js", kind: "Web & Systems", summary: "Responsive car dealership experience rebuilt with Next.js and TypeScript.", stack: ["Next.js", "TypeScript", "Tailwind CSS"], year: "2026", image: "/8.png", code: "https://github.com/RavinduWanasinghe0524/Elite-wheels-next", featured: true },
@@ -44,6 +43,11 @@ export const credentials = [
   { title: "Introduction to Prompt Engineering", issuer: "Simplilearn SkillUp", year: "2026" },
   { title: "Machine Learning Using Python", issuer: "Simplilearn SkillUp", year: "2026" },
   { title: "Certificate of Appreciation — SabraXtreme 3.0", issuer: "IEEE Student Branch, SUSL", year: "2025" },
+];
+
+export const awards = [
+  { result: "1st runner-up", competition: "AURORA 2026 AI Ideathon", team: "Team Shadow Sense", project: "ShadowSense Aurora" },
+  { result: "1st runner-up", competition: "AI Hackathon 2026", team: "Team IGNITE", project: "GridWalk AI" },
 ];
 
 export const aiPractice = [

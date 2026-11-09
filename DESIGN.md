@@ -11,12 +11,12 @@ The redesign takes the clarity of type-led portfolios and the directness of case
 - **Type:** IBM Plex Sans for display and body; IBM Plex Mono for section labels and metadata. Fonts are bundled locally.
 - **Color:** charcoal background (`#111315`), off-white text (`#e9e8e3`), warm copper accent (`#d6ae8e`), and a slightly lighter surface for recognition.
 - **Layout:** 1180px maximum content width, left-aligned grid, large image-led project rows, and generous section spacing.
-- **Signature:** a single warm recognition panel carries the award and credentials; the closing contact section uses the accent as a full surface.
+- **Signature:** a single warm recognition panel carries the awards and credentials; the closing contact section uses the accent as a full surface.
 - **Interaction:** restrained link and image hover states; visible keyboard focus; reduced-motion support.
 
 ## Content and maintenance
 
-The three selected projects, AI practice, and tech stack are drawn from `src/lib/data.ts`. Credentials and award details come from the owner's CV PDFs in `public/`. The portrait is `public/2.jpg`. The rest of the project archive is linked through GitHub.
+The three selected projects, AI practice, tech stack, awards, and credentials are drawn from `src/lib/data.ts`. The AURORA result and credentials come from the owner's CV; the AI Hackathon result comes from the owner's provided announcement. The portrait is `public/2.jpg`. The rest of the project archive is linked through GitHub.
 
 ## Audit
 
