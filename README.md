@@ -11,7 +11,11 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. For a production check, run `npm run build` and `npm run start`.
+Open http://localhost:3000. For a production check, run `npm run build`; the static site is generated in `out/`.
+
+## Publish at the existing URL
+
+The site at https://ravinduwanasinghe0524.github.io/ is served from the root of [RavinduWanasinghe0524.github.io](https://github.com/RavinduWanasinghe0524/RavinduWanasinghe0524.github.io). After changing this source project, run `npm run build` and copy the contents of `out/` to that repository root. Keep its `.nojekyll` file so GitHub Pages serves the `_next/` assets.
 
 ## Content
 
